@@ -56,6 +56,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun StepLabScreen(
     onRequestPermissions: ((Set<String>) -> Unit) -> Unit,
