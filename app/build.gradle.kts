@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.stepuphealthconnecttester"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.stepuphealthconnecttester"
