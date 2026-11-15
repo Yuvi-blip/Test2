@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.health.connect.client.HealthConnectClient
 import androidx.health.connect.client.PermissionController
-import androidx.health.connect.client.records.Metadata
+import androidx.health.connect.client.records.metadata.Metadata
 import androidx.health.connect.client.records.StepsRecord
 import androidx.health.connect.client.request.ReadRecordsRequest
 import androidx.health.connect.client.time.TimeRangeFilter
@@ -259,8 +259,9 @@ private fun StepLabScreen(
                                     count = count,
 
                                     metadata = Metadata.manualEntry(
-                                        clientRecordId = "step-data-lab-test-${System.currentTimeMillis()}"
-                                    )
+    clientRecordId = "step-data-lab-test-${System.currentTimeMillis()}",
+    clientRecordVersion = 0
+)
                                 )
 
                                 val result = client.insertRecords(
@@ -268,7 +269,7 @@ private fun StepLabScreen(
                                 )
 
                                 status =
-                                    "Inserted ${count} clearly labelled manual test steps. Record IDs: ${result.recordIds.size}. Check Health Connect to verify."
+                                    "Inserted ${count} clearly labelled manual test steps. Record IDs: ${result.recordIdsList.size}. Check Health Connect to verify."
 
                             } catch (e: Exception) {
 
